@@ -8,6 +8,8 @@ name: TOML Validation
 #           python-version: '3.11.4'
 on:
   push:
+    branches:
+     -main
     path:
       - '**.toml' 
   workflow_dispatch:
