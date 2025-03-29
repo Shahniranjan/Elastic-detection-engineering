@@ -24,14 +24,10 @@ jobs:
        - name: Get changed files
          id: changed-files
          uses: tj-actions/changed-files@823fcebdb31bb35fdf2229d9f769b400309430d0 # v46
-        # To compare changes between the current commit and the last pushed remote commit set `since_last_remote_commit: true`. e.g
-        # with:
-        #   since_last_remote_commit: true 
 
-       - name: List all changed files
+       - name: Run Update Script
          env:
+          ELASTIC_KEY: ${{ secrets.ELASTIC_KEY }}
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
          run: |
-           for file in ${ALL_CHANGED_FILES}; do
-             echo "$file was changed"
-           done
+           python development/update_alert.py

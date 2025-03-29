@@ -10,9 +10,12 @@ headers = {
     'Authorization': 'ApiKey ' + api_key
 }
 
+changed_files =  os.environ["CHANGED_FILES"]
+
 data = ""
 for root, dirs, files in os.walk("detections/"):
     for file in files:
+      if file in changed_files:
         data = "{\n"
         if file.endswith(".toml"):
             # print(file)
