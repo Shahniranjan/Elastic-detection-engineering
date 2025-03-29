@@ -138,9 +138,9 @@ for file in alert_data:
             failure = 1
       except KeyError:
          pass
-
+      print(file + ": " + tactic + " : " + technique_id + " :  " + subtechnique_id)
 if failure !=0:
   sys.exit(1)
 
-      # print(file + ": " + tactic + " : " + technique_id + " :  " + subtechnique_id)
+      
    
