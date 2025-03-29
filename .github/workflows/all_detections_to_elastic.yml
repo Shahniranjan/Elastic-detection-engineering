@@ -8,19 +8,17 @@ name: TOML Validation
 #           python-version: '3.11.4'
 on:
   push:
-    path:
-      - '**.toml' 
   workflow_dispatch:
 
 
 jobs:
-  toml-valadation:
+  elastic-detection-push:
     runs-on: ubuntu-latest
+    env:
+      ELASTIC_KEY: ${{ secrets.ELASTIC_KEY }}
     steps:
       - uses: actions/checkout@v4
-      - name: Valadation
+      - name: Pushing to Elastic
         run: |
-         python development/validation.py
-      - name: Mitre Valadation
-        run: |
-         python development/mitre.py
+         python development/toml_to_json.py
+      
