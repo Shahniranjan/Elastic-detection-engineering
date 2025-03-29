@@ -5,7 +5,7 @@ maturity = "production"
 min_stack_comments = "Breaking change at 8.14.0 for the Windows Integration."
 min_stack_version = "8.14.0"
 updated_date = "2025/02/21"
-rule_id = "6aace640-xxx-4870-ba8e-5fdda09325db"
+rule_id = "xxxxxx-xxx-4870-ba8e-5fdda09325db"
 
 [rule]
 author = ["Elastic"]
@@ -28,7 +28,7 @@ index = [
 ]
 language = "eql"
 license = "Elastic License v2"
-name = "Exporting Exchange Mailbox via PowerShell"
+name = "New Testing part 2 rrulle"
 note = """## Triage and analysis
 
 ### Investigating Exporting Exchange Mailbox via PowerShell
