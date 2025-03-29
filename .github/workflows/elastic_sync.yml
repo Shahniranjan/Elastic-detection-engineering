@@ -28,6 +28,7 @@ jobs:
        - name: Run Update Script
          env:
           ELASTIC_KEY: ${{ secrets.ELASTIC_KEY }}
-          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          # Above value is passed to Update_alert.py, make sure name is same
          run: |
            python development/update_alert.py
