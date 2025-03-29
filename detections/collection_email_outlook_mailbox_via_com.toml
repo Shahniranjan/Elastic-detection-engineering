@@ -2,7 +2,7 @@
 author = ["Niranjan Shah"]
 description = "Insert Description Here"
 from = "now-9m" #this is a default value, change as needed.
-name = "Insert Name Here"
+name = "Insert Name Here part 2"
 note = "Insert Analysis Note Here"
 language = "eql"
 rule_id = "xxxxxx-xxxx-4870-ba8e-5fdda09325db"
