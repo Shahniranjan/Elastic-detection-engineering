@@ -2,7 +2,10 @@
 
 name: TOML Validation
 
-# Controls when the workflow will run
+# # Controls when the workflow will run
+#   - uses: actions/setup-python@v4
+#         with:
+#           python-version: '3.11.4'
 on:
   workflow_dispatch:
 
@@ -12,10 +15,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.11.4'
-        run: |
-          python development/validation.py
-          python development/mitre.py
+        run: python development/validation.py
+        run: python development/mitre.py
