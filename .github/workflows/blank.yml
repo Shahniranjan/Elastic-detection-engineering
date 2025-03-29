@@ -15,5 +15,5 @@ jobs:
       
       - name: Run a multi-line script
         run: |
-          python development/valadition.py
+          python development/validation.py
           python development/mitre.py
