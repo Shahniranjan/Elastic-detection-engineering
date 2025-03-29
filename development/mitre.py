@@ -13,7 +13,7 @@ mitreData = requests.get(url,headers).json()
 mitreMapped = {}
 
 # def getMapping(mitreData):
-
+failure = 0
 for object in mitreData['objects']:
    tactics = []
    if object['type'] == 'attack-pattern':
@@ -94,6 +94,7 @@ for file in alert_data:
       # check to ensure Mitre Tactics exists
       if tactic not in mitre_tactic_list:
          print("The MITRE Tactic supplied doesnot exist:" + "\"" + tactic + "\"" + "in" + file)
+         failure = 1
 
       # check to ensure Mitre tech id is valid
 
@@ -102,6 +103,7 @@ for file in alert_data:
             pass
       except KeyError:
          print("The MITRE Technique ID" + "\"" + technique_id + "\"" + "in" + file)
+         failure = 1
       # check to ensure Mitre tech id + name combination is valid
 
       try:
@@ -110,6 +112,7 @@ for file in alert_data:
       
          if alert_name != mitre_name:
             print("The MITRE Technique ID and name Mismatch" + "in" + file + "Expected: " + "\""  + mitre_name +  "\"" + " GIVEN: " + "\"" + alert_name )
+            failure = 1
       except KeyError:
          pass
 
@@ -122,6 +125,7 @@ for file in alert_data:
 
             if alert_name != mitre_name:
              print("The MITRE Sub-Technique ID and name Mismatch" + "in" + file + "Expected: " + "\""  + mitre_name +  "\"" + " GIVEN: " + "\"" + alert_name )
+             failure = 1
       except KeyError:
          pass
 
@@ -131,10 +135,12 @@ for file in alert_data:
       try:
          if mitreMapped[technique_id]['deprecated']  == True:
             print ("Deprecated MITRE Technique ID : " + "\"" + technique_id + "\"" + " in " + file )
+            failure = 1
       except KeyError:
          pass
 
-      
+if failure !=0:
+  sys.exit(1)
 
       # print(file + ": " + tactic + " : " + technique_id + " :  " + subtechnique_id)
    
